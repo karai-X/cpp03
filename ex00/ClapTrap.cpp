@@ -8,18 +8,18 @@ ClapTrap::ClapTrap(std::string name) {
   std::cout << "Constractor Called" << std::endl;
 }
 
-ClapTrap::~ClapTrap() { std::cout << "Destructor Called" << std::endl; }
+ClapTrap::~ClapTrap() { std::cout << _name << ": Destructor Called" << std::endl; }
 
 ClapTrap::ClapTrap(const ClapTrap &other) {
 	_name = other._name;
 	_hit_points = other._hit_points;
 	_energy_points = other._energy_points;
 	_attack_damage = other._attack_damage;
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << _name << ": Copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other){
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << _name << ": Copy assignment operator called" << std::endl;
   if (this != &other) {
     this->_name = other._name;
 	this->_hit_points = other._hit_points;
@@ -30,7 +30,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other){
 }
 
 void ClapTrap::attack(const std::string &target) {
-  if (_energy_points <= 0)
+  if (_energy_points <= 0 || _hit_points <= 0)
     return;
   _energy_points -= 1;
   std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
@@ -47,7 +47,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (_energy_points <= 0)
+  if (_energy_points <= 0 || _hit_points <= 0)
     return;
   _hit_points += amount;
   _energy_points -= 1;
