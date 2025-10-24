@@ -13,7 +13,7 @@ int main() {
   clap1.beRepaired(4);
   clap2.beRepaired(2);
 
-  for (int i = 0; i < 11; ++i) {
+  for (int i = 0; i < 13; ++i) {
     clap1.attack("Trapster");
   }
 

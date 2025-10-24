@@ -1,27 +1,27 @@
-#include "FlagTrap.hpp"
+#include "FragTrap.hpp"
 
-FlagTrap::FlagTrap(std::string name) : ClapTrap(name) {
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
   this->_name = name;
   this->_hit_points = 100;
   this->_energy_points = 100;
   this->_attack_damage = 30;
-  std::cout << _name << ": FlagTrap Constractor Called" << std::endl;
+  std::cout << _name << ": FragTrap Constractor Called" << std::endl;
 }
 
-FlagTrap::~FlagTrap() {
-  std::cout << _name << ": FlagTrap Destructor Called" << std::endl;
+FragTrap::~FragTrap() {
+  std::cout << _name << ": FragTrap Destructor Called" << std::endl;
 }
 
-FlagTrap::FlagTrap(const FlagTrap &other) : ClapTrap(other) {
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
   this->_name = other._name;
   this->_hit_points = other._hit_points;
   this->_energy_points = other._energy_points;
   this->_attack_damage = other._attack_damage;
-  std::cout << this->_name << ": FlagTrap Copy constructor called" << std::endl;
+  std::cout << this->_name << ": FragTrap Copy constructor called" << std::endl;
 }
 
-FlagTrap &FlagTrap::operator=(const FlagTrap &other) {
-  std::cout << _name << ": FlagTrap Copy assignment operator called"
+FragTrap &FragTrap::operator=(const FragTrap &other) {
+  std::cout << _name << ": FragTrap Copy assignment operator called"
             << std::endl;
   if (this != &other) {
     this->_name = other._name;
@@ -32,9 +32,8 @@ FlagTrap &FlagTrap::operator=(const FlagTrap &other) {
   return *this;
 }
 
-void FlagTrap::highFivesGuys() {
+void FragTrap::highFivesGuys() {
   if (_energy_points <= 0 || _hit_points <= 0)
     return;
-  _energy_points -= 1;
   std::cout << _name << ": Let's do High Five !!" << std::endl;
 }
