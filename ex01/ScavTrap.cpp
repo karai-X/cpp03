@@ -47,6 +47,5 @@ void ScavTrap::guardGate() {
   if (_energy_points <= 0 || _hit_points <= 0)
     return;
   _is_gkp = true;
-  _energy_points -= 1;
   std::cout << _name << " is now in Gate Keeper Mode" << std::endl;
 }
